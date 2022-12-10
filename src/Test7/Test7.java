@@ -2,24 +2,31 @@ package Test7;
 
 public class Test7 {
     public static void main(String[] args) {
-        for (int i = 0; i <= 10 ; i++) {
-            if (i==4||i==9){
+
+        int count = 0;
+        int i = 0;
+        while (count <= 100) {
+            i++;
+            boolean name1 = has4or9(i);
+            if (name1) {
                 continue;
+            } else {
+                System.out.println(i);
+                count++;
             }
-            int n = i*10;
-
-            for (int j = 0; j < 10; j++) {
-                if (j==4||j==9||(i==0&&j==0)){
-                    continue;
-                }
-                if(i==10&&j==1){
-                    break;
-                }
-                System.out.println(n+j);
-
-
-            }
-
         }
+    }
+
+    public static boolean has4or9(int number) {
+        while (number > 0) {
+            if (number % 10 == 4) {
+                return true;
+            }
+            if (number % 10 == 9) {
+                return true;
+            }
+            number = number / 10;
+        }
+        return false;
     }
 }
